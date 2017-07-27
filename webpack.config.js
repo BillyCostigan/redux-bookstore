@@ -3,11 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: {
-        app: './src/index.js'
-    },
+    entry: [
+        'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
+        path.resolve(__dirname, './src/index.js')
+    ],
     output: {
         path: path.resolve(__dirname, './dist'),
+        publicPath: "/",
         filename: '[name].js'
     },
     devtool: 'inline-source-map',
@@ -16,9 +18,11 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015', 'react']
+                }
             },
-            // { enforce: 'pre', test: /\.js$/, loader: "source-map-loader" },
             {
                 test: /\.css$/,
                 use: [ 'style-loader', 'css-loader' ]
@@ -65,6 +69,8 @@ module.exports = {
         }),
         new webpack.LoaderOptionsPlugin({
             debug: true
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
     ]
 };
