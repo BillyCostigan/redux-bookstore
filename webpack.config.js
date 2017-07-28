@@ -10,7 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: "/",
-        filename: '[name].js'
+        filename: 'bundle.js'
     },
     devtool: 'inline-source-map',
     module: {
@@ -71,6 +71,11 @@ module.exports = {
             debug: true
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.ProvidePlugin({
+            jQuery: 'jquery',
+            $: 'jquery',
+            jquery: 'jquery'
+        })
     ]
 };

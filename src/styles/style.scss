@@ -1,3 +1,76 @@
-h1 {
-  color: green;
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+.header-container {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  background-color: orangered;
+  .logo-container {
+    display: flex;
+    align-items: center;
+    .logo-container__title {
+      text-transform: uppercase;
+      padding: 10px;
+      font-size: 22px;
+      margin: 0;
+    }
+    .icon {
+      font-size: 65px;
+    }
+  }
+  .nav-container {
+    width: 200px;
+    margin: 25px;
+    font-size: 22px;
+    text-decoration: none;
+  }
+  .user-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .user-container__title {
+      text-transform: uppercase;
+      padding: 10px;
+      font-size: 22px;
+      margin: 0;
+    }
+    .btn {
+      width:60px;
+      height: 50px;
+      margin: 2px;
+    }
+  }
+  .news-container {
+    position: absolute;
+    width: 300px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 120px;
+    .nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      .icon {
+        font-size: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width : 650px) {
+  .user-container {
+    flex-direction: column;
+  }
+}
+
+@media (min-width : 651px) {
+  .user-container {
+    flex-direction: row-reverse;
+  }
 }
