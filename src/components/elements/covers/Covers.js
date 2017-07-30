@@ -1,14 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router';
 
-class HomePage extends React.Component {
+class Covers extends React.Component {
     render() {
         return (
             <div className="jumbotron">
-                <h1>Home Page</h1>
+                <h1>Covers</h1>
             </div>
         )
     }
 }
 
-export default HomePage;
+export default Covers;

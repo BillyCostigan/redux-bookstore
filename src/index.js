@@ -8,29 +8,13 @@ import {render} from 'react-dom';
 import {Router, browserHistory} from 'react-router';
 import {Provider} from 'react-redux';
 import routes from './routes';
-// import configureStore from './store/configureStore';
-//
-// const store = configureStore();
+import configureStore from './store/configureStore';
+
+const store = configureStore();
 
 render (
-    <Router history={browserHistory} routes={routes} />,
+    <Provider store={store}>
+    <Router history={browserHistory} routes={routes} />
+    </Provider>,
     document.getElementById('app')
 );
-
-// class AppComponent extends React.Component {
-//     render() {
-//         return (
-//             <div>
-//                 <h1 className="alert-danger">OK</h1>
-//                 <Main/>
-//                 <CoursesPage/>
-//             </div>
-//         )
-//     }
-// }
-//
-// ReactDOM.render(
-//     <Provider store={store}>
-//     <AppComponent />
-//     </Provider>,
-//     document.getElementById('app'));
