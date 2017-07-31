@@ -14,7 +14,7 @@ import CoursesPage from './components/coursesPage';
 
 export default (
     <Route path="/" component={App}>
-        <IndexRoute component={HomePage}/>
+        <IndexRoute component={CoursesPage} />
         <Route path="config" component={ConfigPage}/>
         <Route path="elements/" component={ElementsPage}>
             <IndexRoute component={Authors}/>

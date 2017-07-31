@@ -2,13 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as courseActions from '../actions/courseActions';
 import PropTypes from 'prop-types';
+import books from '../api/Database';
 
-export default class CoursesPage extends React.Component {
+class CoursesPage extends React.Component {
     constructor (props, context) {
         super(props, context);
         this.state = {
             course: {title: ''}
         };
+        // console.log(books);
         this.onTitleChange = this.onTitleChange.bind(this);
         this.onClickSave = this.onClickSave.bind(this);
         this.courseRaw = this.courseRaw.bind(this);
@@ -36,13 +38,13 @@ export default class CoursesPage extends React.Component {
                 <h2>Add Course</h2>
                 <input type="text" onChange={this.onTitleChange} value={this.state.course.title} />
                 <input type="submit" onClick={this.onClickSave} value="Save" />
+                {/*<input type="text" readOnly="" value={this.state.data.sth.autorzy} />*/}
             </div>
         )
     }
 }
 
 CoursesPage.propTypes = {
-    dispatch: PropTypes.func.isRequired,
     courses: PropTypes.array.isRequired,
     createCourse: PropTypes.func.isRequired
 };
@@ -59,4 +61,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
- connect(mapStateToProps, mapDispatchToProps) (CoursesPage);
+export default  connect(mapStateToProps, mapDispatchToProps) (CoursesPage);
